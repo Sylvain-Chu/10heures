@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+html,
+body {
+	background-color: var(--light-grey);
+	height: 100vh;
+	max-height: 100vh;
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+#app {
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	isolation: isolate;
+}
+
+:root {
+	--light-grey: hsl(240, 9%, 22%);
+	--darker-grey: hsl(30, 12%, 77%);
+	--deezer-blue: hsl(202, 79%, 51%);
+	--deezer-light-grey: hsl(0, 0%, 90%);
+	--deezer-dark-grey: hsl(0, 0%, 44%);
+	--deezer-red: hsl(355, 65%, 62%);
+}
