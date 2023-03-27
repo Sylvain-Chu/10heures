@@ -7,24 +7,19 @@ app.register(fastifyCors, {
 	origin: true,
 });
 
-const token = '85dffd8fdad46ee1818ba7fa58b75ba1';
-const userId = '1970053982';
-
-app.get('/flow', async (req, res) => {
-	try {
-
-		const response = await got(
-			`https://api.deezer.com/user/${userId}/flow`,
-			{
-				responseType: 'json',
-			},
-		);
-		res.send(response.body);
-	} catch (error) {
-		console.error(error);
-		res.status(500).send('Internal Server Error');
-	}
+app.get('/playlists', async (request, reply) => {
+	const response = await got('https://api.deezer.com/chart/0/playlists?limit=20');
+	reply.send(response.body);
 });
 
+app.get('/user/:id/playlists', async (request, reply) => {
+	const response = await got(`https://api.deezer.com/user/${request.params.id}/playlists`);
+	reply.send(response.body);
+});
 
-app.listen(8000).then(r => console.log('Server started'));
+app.get('/playlists/:id', async (request, reply) => {
+	const response = await got(`https://api.deezer.com/playlist/${request.params.id}`);
+	reply.send(response.body);
+});
+
+app.listen(8000);

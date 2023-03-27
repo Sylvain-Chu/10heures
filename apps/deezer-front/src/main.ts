@@ -8,6 +8,7 @@ const router = createRouter({
 		{ path: '/artists', component: () => import('./pages/ArtistsListView.vue') },
 		{ path: '/albums', component: () => import('./pages/AlbumsListView.vue') },
 		{ path: '/playlists', component: () => import('./pages/PlaylistListView.vue') },
+		{ path: '/playlist/:id', component: () => import('./pages/PlaylistView.vue') },
 	],
 	history: createWebHistory(import.meta.env.BASE_URL),
 });
