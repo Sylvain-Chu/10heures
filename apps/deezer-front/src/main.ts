@@ -5,10 +5,10 @@ import Application from './App.vue';
 const router = createRouter({
 	routes: [
 		{	path: '/', component: () => import('./pages/Home.vue') },
-		{ path: '/artists', component: () => import('./pages/ArtistsListView.vue') },
 		{ path: '/albums', component: () => import('./pages/AlbumsListView.vue') },
 		{ path: '/playlists', component: () => import('./pages/PlaylistListView.vue') },
 		{ path: '/playlist/:id', component: () => import('./pages/PlaylistView.vue') },
+		{ path: '/artist/:id', component: () => import('./pages/ArtistView.vue') },
 	],
 	history: createWebHistory(import.meta.env.BASE_URL),
 });

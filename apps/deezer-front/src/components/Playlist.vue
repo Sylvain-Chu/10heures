@@ -11,18 +11,16 @@
 </script>
 
 <template>
-	<div class="playlist">
-		<img :src="playlist.picture_medium" />
+	<div class='playlist'>
+		<img :src='playlist.picture_medium' />
 		<div>
 			<h3>{{ playlist.title }}</h3>
-			<p>patate</p>
 		</div>
 	</div>
 
 </template>
 
 
-
-<style  scoped>
+<style scoped>
 
 </style>

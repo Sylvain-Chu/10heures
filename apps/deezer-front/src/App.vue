@@ -3,6 +3,7 @@
 
 	import Player from './components/Player.vue';
 	import SideMenu from './components/SideMenu.vue';
+
 	useQueryProvider();
 </script>
 

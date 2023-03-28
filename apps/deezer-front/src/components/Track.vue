@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script lang='ts' setup>
 
 	import { defineProps } from 'vue';
 
@@ -9,49 +9,73 @@
 		},
 	});
 
+	function convertTimestampToDate(timestamp: number) {
+		const date = new Date(timestamp * 1000); // Le timestamp est en secondes, donc on le multiplie par 1000 pour l'obtenir en millisecondes
+		return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear().toString()}`;
+	}
+
+	function convertSecondsToMinutes(seconds: number) {
+		const minutes = Math.floor(seconds / 60);
+		const remainingSeconds = seconds % 60;
+		return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+	}
 </script>
 
 <template>
-	<div class="track">
-		<img :src="track.album.cover_small"  alt='track'/>
-		<div>
-			<h3>{{ track.title }}</h3>
-			<p>{{ track.artist.name }}</p>
-
-		</div>
-	</div>
+	<td class='title'>
+		<img :src='track.album.cover_small' alt='track' />
+		<h3>{{ track.title }}</h3>
+	</td>
+	<td>
+		<RouterLink :to="`/artist/${track.artist.id}`">
+			{{ track.artist.name.length > 20 ? track.artist.name.slice(0, 20) + '...' : track.artist.name }}
+		</RouterLink>
+	</td>
+	<td>
+		{{ track.album.title.length > 20 ? track.album.title.slice(0, 20) + '...' : track.album.title }}
+	</td>
+	<td>{{ convertTimestampToDate(track.time_add) }}</td>
+	<td>{{ convertSecondsToMinutes(track.duration) }}</td>
 </template>
 
-<style lang="scss">
-	.track {
+<style lang='scss'>
+	.title {
+		display: flex;
 		align-items: center;
-		border-top: 1px solid var(--darker-grey);
-		display: flex;
-		gap: 4px;
-		padding-block: 8px;
-
-		& > div {
-			flex-grow: 1;
-		}
-
-		h3 {
-			font-size: 1.1rem;
-			font-weight: 400;
-		}
-
-		p {
-			font-size: 0.8rem;
-		}
-
-		img {
-			height: 50px;
-			width: 50px;
-		}
+		font-size: 14px;
 	}
 
-	.track__actions {
-		display: flex;
-		gap: 4px;
-		justify-content: flex-end;
+	td{
+		padding: 10px;
 	}
+
+	.title img {
+		margin-right: 10px;
+		padding: 5px;
+		width: 50px;
+		height: 50px;
+		object-fit: cover;
+	}
+
+	.info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex: 1;
+	}
+
+	.title {
+		margin: 0;
+		font-size: 1.2rem;
+		font-weight: bold;
+
+	}
+
+	.artist {
+		margin: 0;
+		font-size: 1rem;
+		font-weight: normal;
+	}
+
+
 </style>
