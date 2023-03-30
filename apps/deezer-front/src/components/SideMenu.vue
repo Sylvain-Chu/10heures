@@ -10,64 +10,85 @@
 <!--		<img src='public/img/deezer_logo_white.png' alt='logo deezer'>-->
 		<img src='https://cdn.discordapp.com/attachments/1089603087288778762/1089606350562144447/10h.png' alt='logo deezer'>
 	</RouterLink>
-
-	<ul>
+	<table>
 		<RouterLink to='/'>
-			<li :class="{ active: $route.path === '/' } ">
-				Musique
-			</li>
+			<tr :class="{ active: $route.path === '/' }">
+				<div class="trDiv">
+					<td><i class="fas fa-music fa-lg"></i></td>
+					<td><p>Musique</p></td>
+				</div>
+			</tr>
 		</RouterLink>
 		<RouterLink to='/podcasts'>
-			<li :class="{ active: $route.path === '/artists' }">
-				Podcasts
-			</li>
+			<tr :class="{ active: $route.path === '/artists' }">
+				<div>
+					<td><i class="fa-solid fa-microphone-lines fa-lg"></i></td>
+					<td><p>Podcasts</p></td>
+				</div>
+			</tr>
 		</RouterLink>
 		<RouterLink to='/radio'>
-			<li :class="{ active: $route.path === '/albums' }">
-				Radio
-			</li>
+			<tr :class="{ active: $route.path === '/albums' }">
+				<div>
+					<td><i class="fa-solid fa-radio fa-lg"></i></td>
+					<td><p>radio</p></td>
+				</div>
+			</tr>
 		</RouterLink>
 		<RouterLink to='/explore'>
-			<li :class="{ active: $route.path === '/playlists' }">
-				Explore
-			</li>
+			<tr :class="{ active: $route.path === '/playlists' }">
+				<div>
+					<td></td>
+					<td><p>Explore</p></td>
+				</div>
+			</tr>
 		</RouterLink>
-	</ul>
+	</table>
 </template>
 
 
+
 <style lang='scss' scoped>
-	ul {
+	table {
 		list-style: none;
 		padding: 0;
 		margin: 0;
 	}
 
-	li {
-		padding: 1rem;
-	//border-bottom: 1px solid var(--deezer-light-grey);
+	tr {
 		color: var(--deezer-dark-grey);
 		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		border-left: 2px solid #181820;
+		margin-bottom: 15px;
+	}
+	table tr td:first-child {
+		width: 5vh;
+		padding-left: 20px;
 	}
 
-	a li {
+	a tr {
 		color: white;
 		text-decoration: none;
 		transition: color 0.2s ease-in-out;
 	}
 
-	a:hover li {
+	a:hover tr {
 		color: var(--deezer-red);
 	}
 
-	li.active {
-		border-left: 2px solid var(--deezer-red);
+	tr.active {
+		border-left: 3px solid var(--deezer-red);
 	}
 
-	a li.active {
+	a tr.active {
 		color: var(--deezer-red);
 	}
 
+	i {
+		margin-right: 12px;
+	}
 	 
 
 	footer {

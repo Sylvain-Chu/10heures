@@ -60,6 +60,7 @@
 					<th>Album</th>
 					<th>Added</th>
 					<th>Time</th>
+					<th><input type="radio" name="radio"></th>
 				</tr>
 				<tr v-for='track in playlist.tracks.data'>
 					<Track :track='track' :playlistData='playlist' />
@@ -153,5 +154,20 @@
 
 	.data {
 		margin-top: 10px;
+	}
+
+	input[type="radio"] {
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		border-radius: 3px;
+		width: 18px;
+		height: 18px;
+		border: 2px solid grey;
+		opacity: 0.5;
+	}
+
+	input[type="radio"]:checked {
+		background-color: #ffffff;
 	}
 </style>

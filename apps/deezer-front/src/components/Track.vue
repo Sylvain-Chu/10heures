@@ -36,6 +36,7 @@
 	</td>
 	<td>{{ convertTimestampToDate(track.time_add) }}</td>
 	<td>{{ convertSecondsToMinutes(track.duration) }}</td>
+	<td><input type="radio" name="radio"></td>
 </template>
 
 <style lang='scss'>
@@ -79,6 +80,21 @@
 		margin: 0;
 		font-size: 1rem;
 		font-weight: normal;
+	}
+
+	input[type="radio"] {
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		border-radius: 3px;
+		width: 18px;
+		height: 18px;
+		border: 2px solid grey;
+		opacity: 0.5;
+	}
+
+	input[type="radio"]:checked {
+		background-color: #ffffff;
 	}
 
 

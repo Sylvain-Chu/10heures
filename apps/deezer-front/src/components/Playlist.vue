@@ -25,5 +25,8 @@
 
 	.playlist > div > h3 {
 		color: white;
+		margin-top: 7px;
+		font-weight: 100;
+		font-size: 15px;
 	}
 </style>

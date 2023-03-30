@@ -13,6 +13,8 @@ const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 });
 
+
 const application = createApp(Application);
 application.use(router);
 application.mount('#app');
+

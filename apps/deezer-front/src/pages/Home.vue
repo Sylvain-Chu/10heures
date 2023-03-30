@@ -18,7 +18,7 @@
 			<!--			</section>-->
 
 			<section class='for-you'>
-				<h2>Your playlist</h2>
+				<ul><li><h2>Your playlist</h2></li></ul>
 				<p v-if='isLoading'>Loading...</p>
 				<ul v-else>
 					<RouterLink v-for='playlist in playlists.data' :to='`/playlist/${playlist.id}`' :key='playlist.id'>
