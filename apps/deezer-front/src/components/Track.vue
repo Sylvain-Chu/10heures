@@ -26,7 +26,7 @@
 		<img :src='track.album.cover_small' alt='track' />
 		<h3>{{ track.title }}</h3>
 	</td>
-	<td>
+	<td class="ArtistName">
 		<RouterLink :to="`/artist/${track.artist.id}`">
 			{{ track.artist.name.length > 20 ? track.artist.name.slice(0, 20) + '...' : track.artist.name }}
 		</RouterLink>
@@ -62,6 +62,10 @@
 		flex-direction: column;
 		justify-content: center;
 		flex: 1;
+	}
+
+	.ArtistName a{
+		color: white;
 	}
 
 	.title {

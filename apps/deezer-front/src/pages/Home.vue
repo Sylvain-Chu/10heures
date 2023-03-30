@@ -22,7 +22,7 @@
 				<p v-if='isLoading'>Loading...</p>
 				<ul v-else>
 					<RouterLink v-for='playlist in playlists.data' :to='`/playlist/${playlist.id}`' :key='playlist.id'>
-						<li>
+						<li class="tumecasseslescouilles">
 							<Playlist :playlist='playlist' />
 						</li>
 					</RouterLink>
@@ -123,6 +123,10 @@
 		flex-direction: column;
 		padding-inline: 8px;
 		height: 100%;
+	}
+
+	.tumecasseslescouilles {
+		text-decoration: none !important;
 	}
 
 

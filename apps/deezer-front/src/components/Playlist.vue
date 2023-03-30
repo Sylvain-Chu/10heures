@@ -23,4 +23,7 @@
 
 <style scoped>
 
+	.playlist > div > h3 {
+		color: white;
+	}
 </style>

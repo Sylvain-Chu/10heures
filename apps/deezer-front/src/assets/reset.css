@@ -2,10 +2,20 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 * {
     margin: 0;
+}
+
+ul {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+li.active, li::marker {
+    text-decoration: none;
 }
 
 html,

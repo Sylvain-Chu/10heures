@@ -13,7 +13,7 @@
 
 	<ul>
 		<RouterLink to='/'>
-			<li :class="{ active: $route.path === '/' }">
+			<li :class="{ active: $route.path === '/' } ">
 				Musique
 			</li>
 		</RouterLink>
@@ -47,6 +47,7 @@
 		padding: 1rem;
 	//border-bottom: 1px solid var(--deezer-light-grey);
 		color: var(--deezer-dark-grey);
+		display: flex;
 	}
 
 	a li {
@@ -66,6 +67,8 @@
 	a li.active {
 		color: var(--deezer-red);
 	}
+
+	 
 
 	footer {
 		background-color: hsl(240, 11%, 15%);
