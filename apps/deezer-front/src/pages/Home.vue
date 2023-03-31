@@ -8,7 +8,13 @@
 <template>
 	<div class='container'>
 		<header>
+			<div class="headerGauche">
+				<i class="fa-solid fa-magnifying-glass"></i>
+				<input type="text" name="search" id="searchHeader" placeholder="Rechercher">
+			</div>
+			<div>
 
+			</div>
 		</header>
 		<main>
 			<!--			<section class='flow'>-->
@@ -69,6 +75,23 @@
 
 	header {
 		grid-area: header;
+		border-bottom: 1px solid transparent var(--light-grey);
+		display: flex;
+		align-items: center;
+		
+		
+	}
+
+	.headerGauche > i {
+		color: white;
+		opacity: 0.25;
+	}
+
+	#searchHeader {
+		background-color: #121216;
+		color: white;
+		border: none;
+
 	}
 
 	main {

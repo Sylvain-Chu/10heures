@@ -7,8 +7,10 @@
 
 <template>
 	<RouterLink to='/'>
-<!--		<img src='public/img/deezer_logo_white.png' alt='logo deezer'>-->
-		<img src='https://cdn.discordapp.com/attachments/1089603087288778762/1089606350562144447/10h.png' alt='logo deezer'>
+		<div class="containerLogoDeezer">
+			<img src='https://cdn.discordapp.com/attachments/1089603087288778762/1089606350562144447/10h.png' alt='logo deezer' id="logoDeezer">
+		</div>
+		
 	</RouterLink>
 	<table>
 		<RouterLink to='/'>
@@ -89,7 +91,15 @@
 	i {
 		margin-right: 12px;
 	}
-	 
+
+	#logoDeezer {
+		width: 150px;
+		margin-bottom: 22px;
+	}
+	.containerLogoDeezer {
+		display: flex;
+		justify-content: center;
+	}
 
 	footer {
 		background-color: hsl(240, 11%, 15%);

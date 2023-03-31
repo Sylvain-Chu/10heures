@@ -25,21 +25,28 @@
 	.container {
 		display: grid;
 		grid-template-areas: 'aside main' 'footer footer';
-		grid-template-columns: 300px 1fr;
-		grid-template-rows: 1fr 100px;
+		grid-template-columns: 225px 1fr;
+		grid-template-rows: 1fr 80px;
 		height: 100vh;
 		max-height: 100vh;
+		max-width: 100vw;
 	}
 
 	main {
 		background-color: hsl(240, 10%, 8%);
 		grid-area: main;
-		max-height: 100%;
+		max-height: 100vw;
+	}
+
+	footer {
+		width: 100vw;
 	}
 
 	aside {
 		border-right: 1px solid var(--light-grey);
 		grid-area: aside;
 		background-color: hsl(240, 14%, 11%);
+		width: 31vh;
+		border: 1px solid transparent var(--light-grey);
 	}
 </style>
