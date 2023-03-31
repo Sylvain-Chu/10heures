@@ -12,8 +12,9 @@
 				<i class="fa-solid fa-magnifying-glass"></i>
 				<input type="text" name="search" id="searchHeader" placeholder="Rechercher">
 			</div>
-			<div>
-
+			<div class="headerDroite">
+				<i class="fa-solid fa-bell fa-lg"></i>
+				<img src="../../public/img/profil.png" alt="profil image">
 			</div>
 		</header>
 		<main>
@@ -75,23 +76,43 @@
 
 	header {
 		grid-area: header;
-		border-bottom: 1px solid transparent var(--light-grey);
+		border-bottom: 1px solid var(--light-grey);
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
-		
-		
 	}
 
 	.headerGauche > i {
 		color: white;
 		opacity: 0.25;
+		margin-left: 25px;
+		margin-right: 10px;
+	}
+
+	.headerDroite {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		width: 7vw;
+	}
+	.headerDroite > i {
+		color: white;
+	}
+
+	.headerDroite > img {
+		width: 2vw;
+		border-radius: 50vw;
 	}
 
 	#searchHeader {
 		background-color: #121216;
 		color: white;
 		border: none;
+		width: 25vw;
+	}
 
+	#searchHeader:focus {
+		border-color: #121216;
 	}
 
 	main {
@@ -139,6 +160,10 @@
 
 	main section ul li a:hover {
 		color: var(--light-grey);
+	}
+
+	ul > li > h2 {
+		font-size: 22px;
 	}
 
 	.section {
