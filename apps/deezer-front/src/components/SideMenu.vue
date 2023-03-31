@@ -1,4 +1,3 @@
-
 <script>
 	export default {
 		name: 'SideMenu',
@@ -7,16 +6,17 @@
 
 <template>
 	<RouterLink to='/'>
-		<div class="containerLogoDeezer">
-			<img src='https://cdn.discordapp.com/attachments/1089603087288778762/1089606350562144447/10h.png' alt='logo deezer' id="logoDeezer">
+		<div class='containerLogoDeezer'>
+			<img src='https://cdn.discordapp.com/attachments/1089603087288778762/1089606350562144447/10h.png'
+					 alt='logo deezer' id='logoDeezer'>
 		</div>
-		
+
 	</RouterLink>
 	<table>
 		<RouterLink to='/'>
 			<tr :class="{ active: $route.path === '/' }">
-				<div class="trDiv">
-					<td><i class="fas fa-music fa-lg"></i></td>
+				<div class='trDiv'>
+					<td><i class='fas fa-music fa-lg'></i></td>
 					<td><p>Musique</p></td>
 				</div>
 			</tr>
@@ -24,7 +24,7 @@
 		<RouterLink to='/podcasts'>
 			<tr :class="{ active: $route.path === '/artists' }">
 				<div>
-					<td><i class="fa-solid fa-microphone-lines fa-lg"></i></td>
+					<td><i class='fa-solid fa-microphone-lines fa-lg'></i></td>
 					<td><p>Podcasts</p></td>
 				</div>
 			</tr>
@@ -32,8 +32,8 @@
 		<RouterLink to='/radio'>
 			<tr :class="{ active: $route.path === '/albums' }">
 				<div>
-					<td><i class="fa-solid fa-radio fa-lg"></i></td>
-					<td><p>radio</p></td>
+					<td><i class='fa-solid fa-radio fa-lg'></i></td>
+					<td><p>Radio</p></td>
 				</div>
 			</tr>
 		</RouterLink>
@@ -47,7 +47,6 @@
 		</RouterLink>
 	</table>
 </template>
-
 
 
 <style lang='scss' scoped>
@@ -65,6 +64,7 @@
 		border-left: 2px solid #181820;
 		margin-bottom: 15px;
 	}
+
 	table tr td:first-child {
 		width: 5vh;
 		padding-left: 20px;
@@ -96,6 +96,7 @@
 		width: 150px;
 		margin-bottom: 22px;
 	}
+
 	.containerLogoDeezer {
 		display: flex;
 		justify-content: center;

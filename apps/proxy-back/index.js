@@ -8,7 +8,7 @@ app.register(fastifyCors, {
 });
 
 app.get('/playlists', async (request, reply) => {
-	const response = await got('https://api.deezer.com/chart/0/playlists?limit=20');
+	const response = await got('https://api.deezer.com/chart/0/playlists?limit=12');
 	reply.send(response.body);
 });
 

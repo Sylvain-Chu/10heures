@@ -1,20 +1,21 @@
 <script lang='ts' setup>
-	import { usePlaylistbyUser } from '../hooks';
+	import { usePlaylist, usePlaylistbyUser, usePlaylists } from '../hooks';
 	import Playlist from '../components/Playlist.vue';
 
-	const { playlists, isLoading } = usePlaylistbyUser(1970053982);
+	const { playlistsByUSer } = usePlaylistbyUser(1970053982);
+	const { playlistsByDeezer } = usePlaylists();
 </script>
 
 <template>
 	<div class='container'>
 		<header>
-			<div class="headerGauche">
-				<i class="fa-solid fa-magnifying-glass"></i>
-				<input type="text" name="search" id="searchHeader" placeholder="Rechercher">
+			<div class='headerGauche'>
+				<i class='fa-solid fa-magnifying-glass'></i>
+				<input type='text' name='search' id='searchHeader' placeholder='Rechercher'>
 			</div>
-			<div class="headerDroite">
-				<i class="fa-solid fa-bell fa-lg"></i>
-				<img src="../../public/img/profil.png" alt="profil image">
+			<div class='headerDroite'>
+				<i class='fa-solid fa-bell fa-lg'></i>
+				<img src='../../public/img/profil.png' alt='profil image'>
 			</div>
 		</header>
 		<main>
@@ -25,28 +26,29 @@
 			<!--			</section>-->
 
 			<section class='for-you'>
-				<ul><li><h2>Your playlist</h2></li></ul>
-				<p v-if='isLoading'>Loading...</p>
-				<ul v-else>
-					<RouterLink v-for='playlist in playlists.data' :to='`/playlist/${playlist.id}`' :key='playlist.id'>
-						<li class="tumecasseslescouilles">
+				<ul>
+					<li><h2>Your playlist</h2></li>
+				</ul>
+				<ul>
+					<RouterLink v-for='playlist in playlistsByUSer.data' :to='`/playlist/${playlist.id}`' :key='playlist.id'>
+						<li class='tumecasseslescouilles'>
 							<Playlist :playlist='playlist' />
 						</li>
 					</RouterLink>
 				</ul>
 			</section>
 
-<!--			<section class='for-you'>-->
-<!--				<h2>Your playlist</h2>-->
-<!--				<p v-if='isLoading'>Loading...</p>-->
-<!--				<ul v-else>-->
-<!--					<RouterLink v-for='playlist in playlists.data' :to='`/playlist/${playlist.id}`' :key='playlist.id'>-->
-<!--						<li>-->
-<!--							<Playlist :playlist='playlist' />-->
-<!--						</li>-->
-<!--					</RouterLink>-->
-<!--				</ul>-->
-<!--			</section>-->
+
+			<section class='playlist-by-deezer'>
+				<h2>Popular playlists</h2>
+				<ul>
+					<RouterLink v-for='playlist in playlistsByDeezer.data' :to='`/playlist/${playlist.id}`' :key='playlist.id'>
+						<li>
+							<Playlist :playlist='playlist' />
+						</li>
+					</RouterLink>
+				</ul>
+			</section>
 
 			<!--			<section class='for-you'>-->
 			<!--				<h2>Made for you</h2>-->
@@ -95,6 +97,7 @@
 		justify-content: space-around;
 		width: 7vw;
 	}
+
 	.headerDroite > i {
 		color: white;
 	}
