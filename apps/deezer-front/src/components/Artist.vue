@@ -15,7 +15,7 @@
 	const { tracks } = useTopTrack(+route.params.id);
 
 	const { album } = useLastAlbum(+route.params.id);
-	console.log(album);
+	//console.log(album);
 </script>
 
 <template>
