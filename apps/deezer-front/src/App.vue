@@ -47,6 +47,5 @@
 		grid-area: aside;
 		background-color: hsl(240, 14%, 11%);
 		width: 31vh;
-		border: 1px solid transparent var(--light-grey);
 	}
 </style>
