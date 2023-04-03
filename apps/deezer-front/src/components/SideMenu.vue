@@ -14,7 +14,7 @@
 	</RouterLink>
 	<table>
 		<RouterLink to='/'>
-			<tr :class="{ active: $route.path === '/' }">
+			<tr :class="{ active: $route.path === '/' }" class="tr">
 				<div class="trDiv">
 					<td><i class="fas fa-music fa-lg"></i></td>
 					<td><p>Musique</p></td>
@@ -22,7 +22,7 @@
 			</tr>
 		</RouterLink>
 		<RouterLink to='/podcasts'>
-			<tr :class="{ active: $route.path === '/artists' }">
+			<tr :class="{ active: $route.path === '/podcasts' }" class="tr">
 				<div>
 					<td><i class="fa-solid fa-microphone-lines fa-lg"></i></td>
 					<td><p>Podcasts</p></td>
@@ -30,7 +30,7 @@
 			</tr>
 		</RouterLink>
 		<RouterLink to='/radio'>
-			<tr :class="{ active: $route.path === '/albums' }">
+			<tr :class="{ active: $route.path === '/radio' }" class="tr">
 				<div>
 					<td><i class="fa-solid fa-radio fa-lg"></i></td>
 					<td><p>radio</p></td>
@@ -38,7 +38,7 @@
 			</tr>
 		</RouterLink>
 		<RouterLink to='/explore'>
-			<tr :class="{ active: $route.path === '/playlists' }">
+			<tr :class="{ active: $route.path === '/explore' }" class="tr">
 				<div>
 					<td></td>
 					<td><p>Explore</p></td>
@@ -65,6 +65,7 @@
 		border-left: 2px solid #181820;
 		margin-bottom: 15px;
 	}
+
 	table tr td:first-child {
 		width: 5vh;
 		padding-left: 20px;
@@ -80,7 +81,7 @@
 		color: var(--deezer-red);
 	}
 
-	tr.active {
+	a tr.active{
 		border-left: 3px solid var(--deezer-red);
 	}
 
