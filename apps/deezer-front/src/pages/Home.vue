@@ -19,8 +19,8 @@
 
 
 			<section class='for-you'>
-				<div>
-					<div>
+				<div class="headerContainer">
+					<div >
 						<h2>Your playlist</h2>
 					</div>
 					<div class="btnCarousel">
@@ -30,7 +30,7 @@
 				</div>
 				
 				<ul class="containerCarousel" id="YourPlaylist">
-					<RouterLink v-for='playlist in playlistsByUSer.data' :to='`/playlist/${playlist.id}`' :key='playlist.id'>
+					<RouterLink v-for='playlist in playlistsByUSer.data' :to='`/playlist/${playlist.id}`' :key='playlist.id' class="containerLien">
 						<li>
 							<Playlist :playlist='playlist' />
 						</li>
@@ -40,7 +40,7 @@
 
 
 			<section class='playlist-by-deezer'>
-				<div>
+				<div  class="headerContainer">
 					<div>
 						<h2>Popular playlists</h2>
 					</div>
@@ -51,7 +51,7 @@
 				</div>
 				
 				<ul class="containerCarousel" id="popularPlaylist">
-					<RouterLink v-for='playlist in playlistsByDeezer.data' :to='`/playlist/${playlist.id}`' :key='playlist.id'>
+					<RouterLink v-for='playlist in playlistsByDeezer.data' :to='`/playlist/${playlist.id}`' :key='playlist.id' class="containerLien">
 						<li>
 							<Playlist :playlist='playlist' />
 						</li>
@@ -109,14 +109,14 @@
 		}
 	}
 
-	function ChangeSlide(sens) {
-		var numero = numero + sens;
-		if (numero < 0)
-			numero = slide.length - 1;
-		if (numero > slide.length - 1)
-			numero = 0;
-		document.getElementById("slide").src = slide[numero];
-	}
+	// function ChangeSlide(sens) {
+	// 	var numero = numero + sens;
+	// 	if (numero < 0)
+	// 		numero = slide.length - 1;
+	// 	if (numero > slide.length - 1)
+	// 		numero = 0;
+	// 	document.getElementById("slide").src = slide[numero];
+	// }
 </script>
 
 <style lang='scss' scoped>
@@ -138,11 +138,18 @@
 		display: flex;
 		overflow: hidden;
 		flex-wrap: nowrap;
-		width: 70vw;
+		width: 78vw;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.headerContainer {
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	section > div {
-		width: 70vw;
+		width: 78vw;
 		display: flex;
 		justify-content: space-between;
 	}
@@ -270,5 +277,9 @@
 	main::-webkit-scrollbar-thumb {
 		background: hsl(240, 6%, 34%);
 		border-radius: 0.5rem;
+	}
+
+	.containerLien {
+		padding: 5px;
 	}
 </style>
