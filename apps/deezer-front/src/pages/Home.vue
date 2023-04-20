@@ -1,15 +1,51 @@
+<script lang='ts' setup>
+	import { usePlaylist, usePlaylistbyUser, usePlaylists } from '../hooks';
+	import Playlist from '../components/Playlist.vue';
+	import Header from '../components/Header.vue';
+
+	const { playlistsByUSer } = usePlaylistbyUser(1970053982);
+	const { playlistsByDeezer } = usePlaylists();
+
+	function nextSlide(id) {
+		var carousel = document.getElementById(id);
+		console.log('====================================');
+		console.log(carousel);
+		console.log('====================================');
+		if (carousel != null){
+			console.log('carousel != null');
+			var currentPosition = parseFloat(carousel.style.transform.slice(11));
+			console.log('currentPosition :' + currentPosition);
+			var slideWidth = carousel.offsetWidth;
+			var newPosition = currentPosition - slideWidth;
+			carousel.style.transform = 'translateX(' + newPosition + 'px)';
+		}
+		
+	}
+
+	function previousSlide(id){
+		var carousel = document.getElementById(id);
+		if (carousel != null){
+			var currentPosition = parseFloat(carousel.style.transform.slice(11));
+			var slideWidth = carousel.offsetWidth;
+			var newPosition = currentPosition + slideWidth;
+			carousel.style.transform = 'translateX(' + newPosition + 'px)';
+		}
+	}
+
+	// function ChangeSlide(sens) {
+	// 	var numero = numero + sens;
+	// 	if (numero < 0)
+	// 		numero = slide.length - 1;
+	// 	if (numero > slide.length - 1)
+	// 		numero = 0;
+	// 	document.getElementById("slide").src = slide[numero];
+	// }
+</script>
+
 <template>
 	<div class='container'>
-		<header>
-			<div class='headerGauche'>
-				<i class='fa-solid fa-magnifying-glass'></i>
-				<input type='text' name='search' id='searchHeader' placeholder='Rechercher'>
-			</div>
-			<div class='headerDroite'>
-				<i class='fa-solid fa-bell fa-lg'></i>
-				<img src='../../public/img/profil.png' alt='profil image'>
-			</div>
-		</header>
+		<Header />
+
 		<main>
 			<!--			<section class='flow'>-->
 			<!--				<h2>Mixes inspired by...</h2>-->
@@ -21,7 +57,7 @@
 			<section class='for-you'>
 				<div class="headerContainer">
 					<div >
-						<h2>Your playlist</h2>
+						<h2>Pour toi</h2>
 					</div>
 					<div class="btnCarousel">
 						<button @click="previousSlide('YourPlaylist')"><i class="fas fa-arrow-left"></i></button>
@@ -76,50 +112,17 @@
 	</div>
 </template>
 
-<script lang='ts' setup>
-	import { usePlaylist, usePlaylistbyUser, usePlaylists } from '../hooks';
-	import Playlist from '../components/Playlist.vue';
-
-	const { playlistsByUSer } = usePlaylistbyUser(1970053982);
-	const { playlistsByDeezer } = usePlaylists();
-
-	function nextSlide(id) {
-		var carousel = document.getElementById(id);
-		console.log('====================================');
-		console.log(carousel);
-		console.log('====================================');
-		if (carousel != null){
-			console.log('carousel != null');
-			var currentPosition = parseFloat(carousel.style.transform.slice(11));
-			console.log('currentPosition :' + currentPosition);
-			var slideWidth = carousel.offsetWidth;
-			var newPosition = currentPosition - slideWidth;
-			carousel.style.transform = 'translateX(' + newPosition + 'px)';
-		}
-		
-	}
-
-	function previousSlide(id){
-		var carousel = document.getElementById(id);
-		if (carousel != null){
-			var currentPosition = parseFloat(carousel.style.transform.slice(11));
-			var slideWidth = carousel.offsetWidth;
-			var newPosition = currentPosition + slideWidth;
-			carousel.style.transform = 'translateX(' + newPosition + 'px)';
-		}
-	}
-
-	// function ChangeSlide(sens) {
-	// 	var numero = numero + sens;
-	// 	if (numero < 0)
-	// 		numero = slide.length - 1;
-	// 	if (numero > slide.length - 1)
-	// 		numero = 0;
-	// 	document.getElementById("slide").src = slide[numero];
-	// }
-</script>
 
 <style lang='scss' scoped>
+
+	main {
+		font-family: "Open Sans",Helvetica,Arial,sans-serif;
+	}
+	.headerContainer {
+		margin-left: auto;
+		margin-right: auto;   
+	}
+
 	#popularPlaylist, #YourPlaylist{
 		transform: translateX(0px);
 	}
@@ -134,22 +137,22 @@
 		background-color: #121216;
 		border: none;
 	}
+
 	.containerCarousel {
 		display: flex;
 		overflow: hidden;
 		flex-wrap: nowrap;
-		width: 78vw;
+		width: 81vw; 
 		margin-left: auto;
 		margin-right: auto;
 	}
 
-	.headerContainer {
-		margin-left: auto;
-		margin-right: auto;
+	.for-you {
+		
 	}
 
 	section > div {
-		width: 78vw;
+		width: 80vw;
 		display: flex;
 		justify-content: space-between;
 	}
@@ -161,48 +164,7 @@
 		height: 86vh;
 	}
 
-	header {
-		grid-area: header;
-		border-bottom: 1px solid var(--light-grey);
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	.headerGauche > i {
-		color: white;
-		opacity: 0.25;
-		margin-left: 25px;
-		margin-right: 10px;
-	}
-
-	.headerDroite {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		width: 7vw;
-	}
-
-	.headerDroite > i {
-		color: white;
-	}
-
-	.headerDroite > img {
-		width: 2vw;
-		border-radius: 50vw;
-	}
-
-	#searchHeader {
-		background-color: #121216;
-		color: white;
-		border: none;
-		width: 25vw;
-	}
-
-	#searchHeader:focus {
-		border-color: #121216;
-	}
-
+	
 	main {
 		grid-area: main;
 		position: relative;
@@ -221,7 +183,7 @@
 	}
 
 	main section h2 {
-		font-size: 1.5rem;
+		font-size: 22px;
 		font-weight: 600;
 		margin-bottom: 1rem;
 		color: white;
@@ -282,4 +244,6 @@
 	.containerLien {
 		padding: 5px;
 	}
+
+	
 </style>

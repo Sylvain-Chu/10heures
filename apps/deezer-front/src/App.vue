@@ -46,6 +46,6 @@
 		border-right: 1px solid var(--light-grey);
 		grid-area: aside;
 		background-color: hsl(240, 14%, 11%);
-		width: 31vh;
+		width: 100%;
 	}
 </style>
