@@ -1,84 +1,7 @@
-<template>
-	<div class='container'>
-		<header>
-			<div class='headerGauche'>
-				<i class='fa-solid fa-magnifying-glass'></i>
-				<input type='text' name='search' id='searchHeader' placeholder='Rechercher'>
-			</div>
-			<div class='headerDroite'>
-				<i class='fa-solid fa-bell fa-lg'></i>
-				<img src='../../public/img/profil.png' alt='profil image'>
-			</div>
-		</header>
-		<main>
-			<!--			<section class='flow'>-->
-			<!--				<h2>Mixes inspired by...</h2>-->
-			<!--				<p>Discover new tracks similar to your favourites</p>-->
-			<!--				<MixInspiredBy />-->
-			<!--			</section>-->
-
-
-			<section class='for-you'>
-				<div>
-					<div>
-						<h2>Your playlist</h2>
-					</div>
-					<div class="btnCarousel">
-						<button @click="previousSlide('YourPlaylist')"><i class="fas fa-arrow-left"></i></button>
-						<button @click="nextSlide('YourPlaylist')"><i class="fas fa-arrow-right"></i></button>
-					</div>
-				</div>
-				
-				<ul class="containerCarousel" id="YourPlaylist">
-					<RouterLink v-for='playlist in playlistsByUSer.data' :to='`/playlist/${playlist.id}`' :key='playlist.id'>
-						<li>
-							<Playlist :playlist='playlist' />
-						</li>
-					</RouterLink>
-				</ul>
-			</section>
-
-
-			<section class='playlist-by-deezer'>
-				<div>
-					<div>
-						<h2>Popular playlists</h2>
-					</div>
-					<div class="btnCarousel">
-						<button @click="previousSlide('popularPlaylist')" id="precedent"><i class="fas fa-arrow-left"></i></button>
-						<button @click="nextSlide('popularPlaylist')" id="suivant"><i class="fas fa-arrow-right"></i></button>
-					</div>
-				</div>
-				
-				<ul class="containerCarousel" id="popularPlaylist">
-					<RouterLink v-for='playlist in playlistsByDeezer.data' :to='`/playlist/${playlist.id}`' :key='playlist.id'>
-						<li>
-							<Playlist :playlist='playlist' />
-						</li>
-					</RouterLink>
-				</ul>
-			</section>
-
-			<!--			<section class='for-you'>-->
-			<!--				<h2>Made for you</h2>-->
-
-			<!--			</section>-->
-
-			<!--			<section class='new-release'>-->
-			<!--				<h2>New releases for you</h2>-->
-			<!--			</section>-->
-
-			<!--			<section class='popular'>-->
-			<!--				<h2>Popular playlist</h2>-->
-			<!--			</section>-->
-
-		</main>
-	</div>
-</template>
-
 <script lang='ts' setup>
 	import { usePlaylist, usePlaylistbyUser, usePlaylists } from '../hooks';
 	import Playlist from '../components/Playlist.vue';
+	import Header from '../components/Header.vue';
 
 	const { playlistsByUSer } = usePlaylistbyUser(1970053982);
 	const { playlistsByDeezer } = usePlaylists();
@@ -109,17 +32,97 @@
 		}
 	}
 
-	function ChangeSlide(sens) {
-		var numero = numero + sens;
-		if (numero < 0)
-			numero = slide.length - 1;
-		if (numero > slide.length - 1)
-			numero = 0;
-		document.getElementById("slide").src = slide[numero];
-	}
+	// function ChangeSlide(sens) {
+	// 	var numero = numero + sens;
+	// 	if (numero < 0)
+	// 		numero = slide.length - 1;
+	// 	if (numero > slide.length - 1)
+	// 		numero = 0;
+	// 	document.getElementById("slide").src = slide[numero];
+	// }
 </script>
 
+<template>
+	<div class='container'>
+		<Header />
+
+		<main>
+			<!--			<section class='flow'>-->
+			<!--				<h2>Mixes inspired by...</h2>-->
+			<!--				<p>Discover new tracks similar to your favourites</p>-->
+			<!--				<MixInspiredBy />-->
+			<!--			</section>-->
+
+
+			<section class='for-you'>
+				<div class="headerContainer">
+					<div >
+						<h2>Pour toi</h2>
+					</div>
+					<div class="btnCarousel">
+						<button @click="previousSlide('YourPlaylist')"><i class="fas fa-arrow-left"></i></button>
+						<button @click="nextSlide('YourPlaylist')"><i class="fas fa-arrow-right"></i></button>
+					</div>
+				</div>
+				
+				<ul class="containerCarousel" id="YourPlaylist">
+					<RouterLink v-for='playlist in playlistsByUSer.data' :to='`/playlist/${playlist.id}`' :key='playlist.id' class="containerLien">
+						<li>
+							<Playlist :playlist='playlist' />
+						</li>
+					</RouterLink>
+				</ul>
+			</section>
+
+
+			<section class='playlist-by-deezer'>
+				<div  class="headerContainer">
+					<div>
+						<h2>Popular playlists</h2>
+					</div>
+					<div class="btnCarousel">
+						<button @click="previousSlide('popularPlaylist')" id="precedent"><i class="fas fa-arrow-left"></i></button>
+						<button @click="nextSlide('popularPlaylist')" id="suivant"><i class="fas fa-arrow-right"></i></button>
+					</div>
+				</div>
+				
+				<ul class="containerCarousel" id="popularPlaylist">
+					<RouterLink v-for='playlist in playlistsByDeezer.data' :to='`/playlist/${playlist.id}`' :key='playlist.id' class="containerLien">
+						<li>
+							<Playlist :playlist='playlist' />
+						</li>
+					</RouterLink>
+				</ul>
+			</section>
+
+			<!--			<section class='for-you'>-->
+			<!--				<h2>Made for you</h2>-->
+
+			<!--			</section>-->
+
+			<!--			<section class='new-release'>-->
+			<!--				<h2>New releases for you</h2>-->
+			<!--			</section>-->
+
+			<!--			<section class='popular'>-->
+			<!--				<h2>Popular playlist</h2>-->
+			<!--			</section>-->
+
+		</main>
+	</div>
+</template>
+
+
 <style lang='scss' scoped>
+
+	main {
+		font-family: "Open Sans",Helvetica,Arial,sans-serif;
+	}
+	.headerContainer {
+		margin-left: auto;
+		margin-right: auto;   
+	}
+
 	#popularPlaylist, #YourPlaylist{
 		transform: translateX(0px);
 	}
@@ -134,15 +137,22 @@
 		background-color: #121216;
 		border: none;
 	}
+
 	.containerCarousel {
 		display: flex;
 		overflow: hidden;
 		flex-wrap: nowrap;
-		width: 70vw;
+		width: 81vw; 
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.for-you {
+		
 	}
 
 	section > div {
-		width: 70vw;
+		width: 80vw;
 		display: flex;
 		justify-content: space-between;
 	}
@@ -154,48 +164,7 @@
 		height: 86vh;
 	}
 
-	header {
-		grid-area: header;
-		border-bottom: 1px solid var(--light-grey);
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	.headerGauche > i {
-		color: white;
-		opacity: 0.25;
-		margin-left: 25px;
-		margin-right: 10px;
-	}
-
-	.headerDroite {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		width: 7vw;
-	}
-
-	.headerDroite > i {
-		color: white;
-	}
-
-	.headerDroite > img {
-		width: 2vw;
-		border-radius: 50vw;
-	}
-
-	#searchHeader {
-		background-color: #121216;
-		color: white;
-		border: none;
-		width: 25vw;
-	}
-
-	#searchHeader:focus {
-		border-color: #121216;
-	}
-
+	
 	main {
 		grid-area: main;
 		position: relative;
@@ -214,7 +183,7 @@
 	}
 
 	main section h2 {
-		font-size: 1.5rem;
+		font-size: 22px;
 		font-weight: 600;
 		margin-bottom: 1rem;
 		color: white;
@@ -271,4 +240,10 @@
 		background: hsl(240, 6%, 34%);
 		border-radius: 0.5rem;
 	}
+
+	.containerLien {
+		padding: 5px;
+	}
+
+	
 </style>
