@@ -1,5 +1,4 @@
 <script setup>
-	import { defineProps, ref } from 'vue';
 	import { usePlaylist } from '../hooks';
 	import { useRoute } from 'vue-router';
 	import Track from '../components/Track.vue';

@@ -38,7 +38,7 @@
 	main {
 		background-color: hsl(240, 10%, 8%);
 		grid-area: main;
-		max-height: 100vw;
+		max-height: 100vh;
 	}
 
 	footer {
