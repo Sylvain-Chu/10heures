@@ -14,18 +14,22 @@
 			<SideMenu />
 		</aside>
 		<main>
-			<header><Header /></header>
+			<header>
+				<Header />
+			</header>
 			<RouterView />
-			<footer><Player /></footer>
+			<footer>
+				<Player />
+			</footer>
 		</main>
-		
 	</div>
 </template>
 
 <style lang="scss" scoped>
-	*{
+	* {
 		margin: 0;
 	}
+
 	.container {
 		display: flex;
 		max-height: 100vh;
@@ -37,7 +41,7 @@
 		max-height: 100vh;
 		display: flex;
 		flex-direction: column;
-		width: 88.5vw;
+		width: 80%;
 	}
 
 	header {
@@ -50,7 +54,7 @@
 
 	aside {
 		border-right: 1px solid var(--light-grey);
-		width: 11.5vw;
+		width: 20%;
 		background-color: hsl(240, 14%, 11%);
 	}
 
