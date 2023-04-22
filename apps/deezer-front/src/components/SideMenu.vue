@@ -1,7 +1,12 @@
-<script lang="js" setup>
-	export default {
-		name: 'SideMenu',
-	};
+<script lang="ts" setup>
+	function handleMouseOver(){
+		console.log('salut');
+		
+	}
+	function handleMouseOut(){
+		console.log('cava');
+		
+	}
 </script>
 
 <template>
@@ -20,9 +25,8 @@
 			<li
 				class="sidebar-nav-item"
 				:class="{ active: $route.path === '/' }"
-				v-bind:class="{ hovered: isHovered }"
-				v-on:mouseover="isHovered = true"
-				v-on:mouseout="isHovered = false"
+				@mouseover="handleMouseOver"
+      			@mouseout="handleMouseOut"
 			>
 				<RouterLink to="/" class="is-main">
 					<svg
