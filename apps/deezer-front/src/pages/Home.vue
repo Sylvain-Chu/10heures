@@ -1,7 +1,6 @@
 <script lang='ts' setup>
 	import { usePlaylist, usePlaylistbyUser, usePlaylists } from '../hooks';
 	import Playlist from '../components/Playlist.vue';
-	import Header from '../components/Header.vue';
 
 	const { playlistsByUSer } = usePlaylistbyUser(1970053982);
 	const { playlistsByDeezer } = usePlaylists();
@@ -44,7 +43,7 @@
 
 <template>
 	<div class='container'>
-		<Header />
+		
 
 		<main>
 			<!--			<section class='flow'>-->

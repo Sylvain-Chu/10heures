@@ -1,42 +1,64 @@
-<script setup>
-	import { defineProps } from 'vue';
-
-	const props = defineProps({
-		playlist: {
-			type: Object,
-			required: true,
-		},
-		
-	});
-</script>
-
 <template>
 	<div class="playlist">
-		<div class="playlistImg" :style="`background-image: url(${playlist.picture_medium})`">
-			<button type="button" class="chakra-button" aria-label="Écouter">
-				<svg class="svg-icon svg-icon-play" focusable="false" height="1em" role="img" width="1em" viewBox="0 0 12 12" aria-hidden="true"><path fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M2.5.5v11l9-5.5z"></path>
-				</svg>
+		<div class="playlistImg" 
+			:style="`background-image: url(${playlist.picture_medium})`"
+			@mouseover="handleMouseOver"
+      		@mouseout="handleMouseOut">
+			<button class="blanc">
+				<i class="fas fa-play triangle" ></i>
+			</button>
+			<button class="blanc backgroundHearth" ref="triangleRef">
+				<i class="fas fa-heart hearth" ></i>
+			</button>
+			<button class="blanc backgroundPoints"  ref="pointsRef">
+				<i class="fas fa-ellipsis-h points"></i>
 			</button>
 		</div>
 		<div>
 			<h3>{{ playlist.title }}</h3>
 		</div>
 	</div>
-  </template>
-  
-  <style scoped>
-  .playlistImg {
-	width: 250px;
-	height: 250px; /* ajustez la hauteur en fonction de vos besoins */
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+</template>
+<script setup>
+	import { defineProps, ref } from 'vue';
 
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-  }
-  .playlist > div > h3 {
+	const props = defineProps({
+		playlist: {
+			type: Object,
+			required: true,
+		},
+	});
+
+	const triangleRef = ref(null);
+	const pointsRef = ref(null);
+
+	function handleMouseOver() {
+		triangleRef.value.style.display = "block";
+		pointsRef.value.style.display = "block";
+	}
+
+	function handleMouseOut() {
+		triangleRef.value.style.display = "none";
+		pointsRef.value.style.display = "none";
+	}
+</script>
+<style scoped>
+	.playlistImg {
+		width: 250px;
+		height: 250px; /* ajustez la hauteur en fonction de vos besoins */
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		display: flex;
+		align-items: end;
+	}
+
+	.playlistImg:hover {
+		background-color: rgb(0, 0, 0);
+		filter: brightness(0.9);
+	}
+
+	.playlist > div > h3 {
 		color: white;
 		margin-top: 7px;
 		font-weight: 100;
@@ -49,11 +71,40 @@
 		z-index: 0;
 	}
 
-	.chakra-button {
-		border-radius: 50%;
-		padding: 10px;
-		margin: 10px;
-		border-color: white;
+	.blanc {
+		margin: 0px 0px 10px 5px;
 		width: 40px;
+		background-color: white;
+		border-radius: 50%;
+	}
+
+	.hearth, .triangle, .points {
+		margin: 10px 0px 10px 0px;
+		color: black;
+	}
+
+	button {
+		border: none
+	}	
+	button:hover {
+		filter: brightness(0.9);
+		cursor: pointer;
+
+	}
+	
+	.hearth {
+		color: #EF5466;
+	}
+
+	.triangle {
+		display: block;
+	}
+
+	.backgroundHearth, .backgroundPoints {
+		display: none;
+	}
+
+	.points {
+		display: block;
 	}
 </style>
