@@ -43,16 +43,7 @@
 
 <template>
 	<div class='container'>
-		
-
 		<main>
-			<!--			<section class='flow'>-->
-			<!--				<h2>Mixes inspired by...</h2>-->
-			<!--				<p>Discover new tracks similar to your favourites</p>-->
-			<!--				<MixInspiredBy />-->
-			<!--			</section>-->
-
-
 			<section class='for-you'>
 				<div class="headerContainer">
 					<div >
@@ -93,20 +84,6 @@
 					</RouterLink>
 				</ul>
 			</section>
-
-			<!--			<section class='for-you'>-->
-			<!--				<h2>Made for you</h2>-->
-
-			<!--			</section>-->
-
-			<!--			<section class='new-release'>-->
-			<!--				<h2>New releases for you</h2>-->
-			<!--			</section>-->
-
-			<!--			<section class='popular'>-->
-			<!--				<h2>Popular playlist</h2>-->
-			<!--			</section>-->
-
 		</main>
 	</div>
 </template>
@@ -116,7 +93,17 @@
 
 	main {
 		font-family: "Open Sans",Helvetica,Arial,sans-serif;
+		
 	}
+
+	.container {
+		height: 86vh;
+		max-height: 86vh;
+		max-width: 100vw;
+		overflow-X: hidden;
+	}
+
+
 	.headerContainer {
 		margin-left: auto;
 		margin-right: auto;   
@@ -146,32 +133,12 @@
 		margin-right: auto;
 	}
 
-	.for-you {
-		
-	}
-
 	section > div {
 		width: 80vw;
 		display: flex;
 		justify-content: space-between;
 	}
-	.container {
-		display: grid;
-		grid-template-areas: 'header' 'main';
-		grid-template-columns: 1fr;
-		grid-template-rows: 50px 1fr;
-		height: 86vh;
-	}
 
-	
-	main {
-		grid-area: main;
-		position: relative;
-		height: 100%;
-		max-height: calc(100vh - 10px);
-		overflow-y: auto;
-
-	}
 
 	main section {
 		padding-left: 2rem;
@@ -227,15 +194,15 @@
 	}
 
 
-	main::-webkit-scrollbar {
+	.container::-webkit-scrollbar {
 		width: 0.4rem;
 	}
 
-	main::-webkit-scrollbar-track {
+	.container::-webkit-scrollbar-track {
 		background: hsl(240, 14%, 11%);
 	}
 
-	main::-webkit-scrollbar-thumb {
+	.container::-webkit-scrollbar-thumb {
 		background: hsl(240, 6%, 34%);
 		border-radius: 0.5rem;
 	}

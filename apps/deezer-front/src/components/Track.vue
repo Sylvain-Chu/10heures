@@ -78,7 +78,7 @@
 	}
 
 	.fa-heart {
-		color: #EF5466;
+		color: var(--deezer-red-hearth);
 	}
 
 	.title img {

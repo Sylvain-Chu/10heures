@@ -132,7 +132,7 @@
 		justify-content: center;
 		padding: 0.625rem 2.5rem;
 		border-radius: 9999px;
-		background-color: #EF5466;
+		background-color: var(--deezer-red-hearth);
 		color: #FFFFFF;
 		font-weight: bold;
 		font-size: 0.75rem;

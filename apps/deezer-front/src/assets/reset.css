@@ -68,4 +68,5 @@ h6 {
     --deezer-light-grey: hsl(0, 0%, 90%);
     --deezer-dark-grey: hsl(0, 0%, 44%);
     --deezer-red: hsl(355, 65%, 62%);
+    --deezer-red-hearth: #EF5466;
 }

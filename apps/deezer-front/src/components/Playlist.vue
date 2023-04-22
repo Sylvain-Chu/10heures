@@ -33,13 +33,13 @@
 	const pointsRef = ref(null);
 
 	function handleMouseOver() {
-		triangleRef.value.style.display = "block";
-		pointsRef.value.style.display = "block";
+		triangleRef.value.style.opacity = "1";
+		pointsRef.value.style.opacity = "1";
 	}
 
 	function handleMouseOut() {
-		triangleRef.value.style.display = "none";
-		pointsRef.value.style.display = "none";
+		triangleRef.value.style.opacity = "0";
+		pointsRef.value.style.opacity = "0";
 	}
 </script>
 <style scoped>
@@ -87,13 +87,12 @@
 		border: none
 	}	
 	button:hover {
-		filter: brightness(0.9);
+		filter: brightness(0.8);
 		cursor: pointer;
-
 	}
 	
 	.hearth {
-		color: #EF5466;
+		color: var(--deezer-red-hearth);
 	}
 
 	.triangle {
@@ -101,9 +100,10 @@
 	}
 
 	.backgroundHearth, .backgroundPoints {
-		display: none;
+		display: block;
+		opacity: 0;
+		transition: opacity 0.2s;
 	}
-
 	.points {
 		display: block;
 	}
