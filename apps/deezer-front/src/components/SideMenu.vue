@@ -3,30 +3,17 @@
 		name: 'SideMenu',
 	};
 
-	const svgIcons = document.querySelectorAll('.svg');
-	console.log(svgIcons);
+	window.addEventListener('DOMContentLoaded', () => {
+		let svgElement = document.getElementsByClassName('svg-icon');
 
-	// svgIcons.forEach((svgIcon) => {
-	// 	svgIcon.addEventListener('mouseenter', () => {
-	// 		const path = svgIcon.querySelector('path');
-	// 		if (path) {
-	// 			path.setAttribute(
-	// 				'd',
-	// 				'M21 2 8 4v12.9c-.635-.555-1.52-.9-2.5-.9C3.567 16 2 17.343 2 19s1.567 3 3.5 3S9 20.657 9 19V8.846l11-1.692V14.9c-.635-.555-1.52-.9-2.5-.9-1.933 0-3.5 1.343-3.5 3s1.567 3 3.5 3 3.5-1.343 3.5-3V2z'
-	// 			);
-	// 		}
-	// 	});
-	//
-	// 	svgIcon.addEventListener('mouseleave', () => {
-	// 		const path = svgIcon.querySelector('path');
-	// 		if (path) {
-	// 			path.setAttribute(
-	// 				'd',
-	// 				'M9 7.834V4.858l11-1.692v2.976L9 7.834zm11-.68L9 8.846V19c0 1.657-1.567 3-3.5 3S2 20.657 2 19s1.567-3 3.5-3c.98 0 1.865.345 2.5.9V4l12-1.846L21 2v15c0 1.657-1.567 3-3.5 3S14 18.657 14 17s1.567-3 3.5-3c.98 0 1.865.345 2.5.9V7.154zM17.5 15c1.53 0 2.5 1.035 2.5 2 0 .965-.97 2-2.5 2S15 17.965 15 17c0-.965.97-2 2.5-2zM8 19c0-.965-.97-2-2.5-2S3 18.035 3 19c0 .965.97 2 2.5 2S8 19.965 8 19z'
-	// 			);
-	// 		}
-	// 	});
-	// });
+		for (let i = 0; i < svgElement.length; i++) {
+			let path = svgElement[i].getElementsByTagName('path');
+
+			svgElement[i].addEventListener('mouseover', () => {
+				path.item(0).setAttribute('d', 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z');
+			});
+		}
+	});
 </script>
 
 <template>
@@ -45,7 +32,7 @@
 			<li class="sidebar-nav-item" :class="{ active: $route.path === '/' }">
 				<RouterLink to="/" class="is-main">
 					<svg
-						class="svg-icon"
+						class="svg-icon1"
 						focusable="false"
 						height="24"
 						role="img"
@@ -144,90 +131,33 @@
 					<span class="sidebar-nav-label">Favourites</span>
 				</RouterLink>
 			</li>
-			<li class="sidebar-nav-item" :class="{ active: $route.path === '/' }">
-				<RouterLink to="/podcasts" class="is-second">
+			<li class="sidebar-nav-item" :class="{ active: $route.path === '/profile/loved' }">
+				<RouterLink to="/profile/loved" class="is-second">
 					<span class="sidebar-nav-label">Favourite tracks</span>
 				</RouterLink>
 			</li>
-			<li class="sidebar-nav-item" :class="{ active: $route.path === '/' }">
-				<RouterLink to="/podcasts" class="is-second">
+			<li class="sidebar-nav-item" :class="{ active: $route.path === '/profile/playlists' }">
+				<RouterLink to="/profile/playlists" class="is-second">
 					<span class="sidebar-nav-label">Playlists</span>
 				</RouterLink>
 			</li>
-			<li class="sidebar-nav-item" :class="{ active: $route.path === '/' }">
-				<RouterLink to="/podcasts" class="is-second">
+			<li class="sidebar-nav-item" :class="{ active: $route.path === '/profile/albums' }">
+				<RouterLink to="/profile/albums" class="is-second">
 					<span class="sidebar-nav-label">Albums</span>
 				</RouterLink>
 			</li>
-			<li class="sidebar-nav-item" :class="{ active: $route.path === '/' }">
-				<RouterLink to="/podcasts" class="is-second">
+			<li class="sidebar-nav-item" :class="{ active: $route.path === '/profile/artists' }">
+				<RouterLink to="/profile/artists" class="is-second">
 					<span class="sidebar-nav-label">Artists</span>
 				</RouterLink>
 			</li>
-			<li class="sidebar-nav-item" :class="{ active: $route.path === '/' }">
-				<RouterLink to="/podcasts" class="is-second">
+			<li class="sidebar-nav-item" :class="{ active: $route.path === '/profile/podcasts' }">
+				<RouterLink to="/profile/podcasts" class="is-second">
 					<span class="sidebar-nav-label">Podcasts</span>
 				</RouterLink>
 			</li>
 		</ul>
 	</div>
-
-	<!--	<table>-->
-
-	<!--			<RouterLink to="/podcasts">-->
-	<!--				<tr :class="{ active: $route.path === '/podcasts' }" class="tr">-->
-	<!--					<td><i class="fa-solid fa-microphone-lines fa-lg"></i></td>-->
-	<!--					<td><p>Podcasts</p></td>-->
-	<!--				</tr>-->
-	<!--			</RouterLink>-->
-	<!--			<RouterLink to="/radio">-->
-	<!--				<tr :class="{ active: $route.path === '/radio' }" class="tr">-->
-	<!--					<td><i class="fa-solid fa-radio fa-lg"></i></td>-->
-	<!--					<td><p>Radio</p></td>-->
-	<!--				</tr>-->
-	<!--			</RouterLink>-->
-	<!--			<RouterLink to="/explore">-->
-	<!--				<tr :class="{ active: $route.path === '/explore' }" class="tr">-->
-	<!--					<td><i class="fas fa-tv"></i></td>-->
-	<!--					<td><p>Explore</p></td>-->
-	<!--				</tr>-->
-	<!--			</RouterLink>-->
-	<!--			<RouterLink to="/favourites">-->
-	<!--				<tr :class="{ active: $route.path === '/favourites' }" class="tr">-->
-	<!--					<td><i class="fas fa-heart"></i></td>-->
-	<!--					<td><p>Favourites</p></td>-->
-	<!--				</tr>-->
-	<!--			</RouterLink>-->
-	<!--		</div>-->
-
-	<!--		<div class="light-menu">-->
-	<!--			<RouterLink to="/favourite_tracks">-->
-	<!--				<tr :class="{ active: $route.path === '/favourite_tracks' }" class="tr">-->
-	<!--					<td><p>Favourite tracks</p></td>-->
-	<!--				</tr>-->
-	<!--			</RouterLink>-->
-	<!--			<RouterLink to="/playlists">-->
-	<!--				<tr :class="{ active: $route.path === '/playlists' }" class="tr">-->
-	<!--					<td><p>Playlists</p></td>-->
-	<!--				</tr>-->
-	<!--			</RouterLink>-->
-	<!--			<RouterLink to="/albums">-->
-	<!--				<tr :class="{ active: $route.path === '/albums' }" class="tr">-->
-	<!--					<td><p>Albums</p></td>-->
-	<!--				</tr>-->
-	<!--			</RouterLink>-->
-	<!--			<RouterLink to="/artists">-->
-	<!--				<tr :class="{ active: $route.path === '/artists' }" class="tr">-->
-	<!--					<td><p>Artists</p></td>-->
-	<!--				</tr>-->
-	<!--			</RouterLink>-->
-	<!--			<RouterLink to="/podcasts">-->
-	<!--				<tr :class="{ active: $route.path === '/podcasts' }" class="tr">-->
-	<!--					<td><p>Podcasts</p></td>-->
-	<!--				</tr>-->
-	<!--			</RouterLink>-->
-	<!--		</div>-->
-	<!--	</table>-->
 </template>
 
 <style lang="scss" scoped>
@@ -242,6 +172,7 @@
 
 	.logo {
 		outline: 0 none;
+		margin-top: 7px;
 	}
 
 	.is-main {
@@ -250,10 +181,6 @@
 		font-weight: 700;
 		height: 32px;
 		margin-bottom: 16px;
-	}
-
-	.sidebar-nav-label {
-		flex: 1;
 	}
 
 	.is-second {
@@ -266,9 +193,6 @@
 	a:hover {
 		color: var(--deezer-red);
 		fill: var(--deezer-red);
-		d: path(
-			'M21 2 8 4v12.9c-.635-.555-1.52-.9-2.5-.9C3.567 16 2 17.343 2 19s1.567 3 3.5 3S9 20.657 9 19V8.846l11-1.692V14.9c-.635-.555-1.52-.9-2.5-.9-1.933 0-3.5 1.343-3.5 3s1.567 3 3.5 3 3.5-1.343 3.5-3V2z'
-		);
 	}
 
 	.logo img {
@@ -277,12 +201,17 @@
 	}
 
 	ul {
-		margin: 32px 0 12px 20px;
+		margin: 32px 0 10px;
 	}
 
-	a {
+	li {
+		border-left: 4px solid hsl(240, 14%, 11%);
+	}
+
+	li a {
 		display: flex;
 		margin-bottom: 16px;
+		padding-left: 20px;
 	}
 
 	.sidebar-nav-item svg {
@@ -293,74 +222,15 @@
 		margin-right: 12px;
 	}
 
-	//li.active {
-	//	border-left: 3px solid var(--deezer-red);
-	//	color: var(--deezer-red);
-	//}
+	li.active {
+		border-left: 4px solid hsl(355, 65%, 62%);
+	}
 
-	//table {
-	//	list-style: none;
-	//	padding: 0;
-	//	margin: 0;
-	//}
-	//
-	//tr {
-	//	color: var(--deezer-dark-grey);
-	//	display: flex;
-	//	flex-direction: column;
-	//	justify-content: center;
-	//	border-left: 2px solid #181820;
-	//	margin-bottom: 15px;
-	//}
-	//
-	//table tr td {
-	//	padding-left: 20px;
-	//}
-	//
-	//a tr {
-	//	color: white;
-	//	text-decoration: none;
-	//	transition: color 0.2s ease-in-out;
-	//}
-	//
-	//a:hover tr {
-	//	color: var(--deezer-red);
-	//}
-	//
-	//a tr.active {
-	//	border-left: 3px solid var(--deezer-red);
-	//}
-	//
-	//a tr.active {
-	//	color: var(--deezer-red);
-	//}
-	//
-	//i {
-	//	margin-right: 12px;
-	//}
-	//
-	//#logoDeezer {
-	//	width: 150px;
-	//	margin-bottom: 22px;
-	//}
-	//
-	//.containerLogoDeezer {
-	//	display: flex;
-	//	justify-content: center;
-	//}
-	//
-	//.bold-menu p {
-	//	font-weight: bold;
-	//}
-	//
-	//.light-menu p {
-	//	color: gray;
-	//	font-size: 12px;
-	//}
-	//
-	//footer {
-	//	background-color: hsl(240, 11%, 15%);
-	//	border-top: 1px solid var(--light-grey);
-	//	grid-area: footer;
-	//}
+	li.active a {
+		color: var(--deezer-red);
+	}
+
+	li.active svg {
+		fill: var(--deezer-red);
+	}
 </style>
