@@ -1,49 +1,36 @@
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <template>
-	<header>
-        <div class='headerGauche'>
-            <i class='fa-solid fa-magnifying-glass'></i>
-            <input type='text' name='search' id='searchHeader' placeholder='Rechercher'>
-        </div>
-        <div class='headerDroite'>
-            <a href="#" class="HeaderLinkNotif">
-                <i class='fa-solid fa-bell fa-lg'></i>
-            </a>
-            <a href="#" class="HeaderLinkImg">
-                <img src='../../public/img/profil.png' alt='profil image'>
-            </a>
-            
-        </div>
-    </header>
+	<div class="headerGauche">
+		<i class="fa-solid fa-magnifying-glass"></i>
+		<input type="text" name="search" id="searchHeader" placeholder="Rechercher" />
+	</div>
+	<div class="headerDroite">
+		<a href="#" class="HeaderLinkNotif">
+			<i class="fa-solid fa-bell fa-lg"></i>
+		</a>
+		<a href="#" class="HeaderLinkImg">
+			<img src="../../public/img/profil.png" alt="profil image" />
+		</a>
+	</div>
 </template>
 
-
 <style scoped>
-    header {
-		border-bottom: 1px solid var(--light-grey);
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-        height: 56px;
-	}
-
 	.headerGauche i {
-        color: white;
+		color: white;
 		opacity: 0.3;
 		margin-left: 25px;
 		margin-right: 10px;
-        font-size: 16px;
+		font-size: 16px;
 	}
 
-    .headerGauche input::placeholder {
-        color: white;
+	.headerGauche input::placeholder {
+		color: white;
 		opacity: 0.7;
-        /* font-family: inherit; */
-        line-height: inherit;
+		/* font-family: inherit; */
+		line-height: inherit;
+	}
 
-    }
 	.headerDroite {
 		display: flex;
 		align-items: center;
@@ -54,7 +41,7 @@
 	.headerDroite img {
 		width: 1.6vw;
 		border-radius: 50vw;
-        /* padding: 7px; */
+		/* padding: 7px; */
 	}
 
 	#searchHeader {
@@ -68,20 +55,19 @@
 		border-color: #121216;
 	}
 
-    
-	input  {
+	input {
 		outline: none;
 	}
 
-    .HeaderLinkNotif {
-        color: white;
-        padding: 10px;
-        margin-right: 10px;
-    }
+	.HeaderLinkNotif {
+		color: white;
+		padding: 10px;
+		margin-right: 10px;
+	}
 
-    .HeaderLinkNotif:hover, .HeaderLinkImg:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-    }
-
+	.HeaderLinkNotif:hover,
+	.HeaderLinkImg:hover {
+		background-color: rgba(255, 255, 255, 0.2);
+		border-radius: 50%;
+	}
 </style>

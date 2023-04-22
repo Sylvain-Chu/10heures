@@ -9,8 +9,11 @@
 		for (let i = 0; i < svgElement.length; i++) {
 			let path = svgElement[i].getElementsByTagName('path');
 
-			svgElement[i].addEventListener('mouseover', () => {
-				path.item(0).setAttribute('d', 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z');
+			console.log(svgElement[i]);
+
+			svgElement[i].addEventListener('mouseenter', () => {
+				console.log('mouseenter');
+				// path.item(0).setAttribute('d', 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z');
 			});
 		}
 	});
@@ -213,6 +216,7 @@
 		display: flex;
 		margin-bottom: 16px;
 		padding-left: 20px;
+		align-items: center;
 	}
 
 	.sidebar-nav-item svg {
