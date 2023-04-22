@@ -1,5 +1,5 @@
 <script setup>
-
+	import { defineProps, ref } from 'vue';
 	import { usePlaylist } from '../hooks';
 	import { useRoute } from 'vue-router';
 	import Track from '../components/Track.vue';
@@ -12,6 +12,18 @@
 		const hours = Math.floor(duration / 3600);
 		const minutes = Math.floor((duration % 3600) / 60);
 		return `${hours > 0 ? hours + ' hrs ' : ''}${minutes} min`;
+	}
+
+	const musiqueRef = ref(null);
+
+	function handleMouseOver() {
+		console.log(musiqueRef.value)
+		musiqueRef.value.style.backgroundColor  = "red";
+	}
+
+	function handleMouseOut() {
+		console.log('degage');
+		musiqueRef.value.style.backgroundColor = "#121216;";
 	}
 
 </script>
@@ -54,15 +66,15 @@
 
 			<table>
 				<tr class='header-table'>
-					<th>Titre</th>
-					<th>Artist</th>
-					<th>Album</th>
-					<th>Added</th>
-					<th>Time</th>
+					<th>TITRE</th>
+					<th>ARTIST</th>
+					<th>ALBUM</th>
+					<th>AJOUTÉ</th>
+					<th><i class="fas fa-clock"></i></th>
 					<th><input type="radio" name="radio"></th>
 				</tr>
-				<tr v-for='track in playlist.tracks.data'>
-					<Track :track='track' :playlistData='playlist' />
+				<tr v-for='track in playlist.tracks.data' @mouseover="handleMouseOver" @mouseout="handleMouseOut"  class="trDatas" >
+					<Track :track='track' :playlistData='playlist' v-bind:ref="musiqueRef"/>
 				</tr>
 			</table>
 		</div>
@@ -71,6 +83,14 @@
 
 <style scoped>
 
+	.trDatas {
+		background-color: #121216;
+	}
+	.header-table > th {
+		font-size: 12px;
+		font-weight: 100;
+		color: #bebec7;
+	}
 	.buttons {
 		display: flex;
 	}
@@ -98,6 +118,7 @@
 		color: #fff;
 		padding: 24px;
 		margin-left: 85px;
+		margin-right: 80px;
 	}
 
 	p {

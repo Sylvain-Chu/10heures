@@ -202,6 +202,7 @@
 
 	ul {
 		margin: 32px 0 10px;
+		padding-left: 0px;
 	}
 
 	li {

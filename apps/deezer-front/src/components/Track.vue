@@ -23,31 +23,62 @@
 
 <template>
 	<td class='title'>
-		<img :src='track.album.cover_small' alt='track' />
-		<h3>{{ track.title }}</h3>
+		<div class="tileGauche">
+			<img :src='track.album.cover_small' alt='track' />
+			<h3>{{ track.title }}</h3>
+		</div>
+		<div class="tileDroite">
+			<i class="fas fa-microphone"></i>
+			<i class="fas fa-heart" ></i>
+			<i class="fas fa-ellipsis-h points"></i>
+		</div>
+		
 	</td>
 	<td class="ArtistName">
 		<RouterLink :to="`/artist/${track.artist.id}`">
 			{{ track.artist.name.length > 20 ? track.artist.name.slice(0, 20) + '...' : track.artist.name }}
 		</RouterLink>
 	</td>
-	<td>
+	<td class="album">
 		{{ track.album.title.length > 20 ? track.album.title.slice(0, 20) + '...' : track.album.title }}
 	</td>
-	<td>{{ convertTimestampToDate(track.time_add) }}</td>
-	<td>{{ convertSecondsToMinutes(track.duration) }}</td>
+	<td class="add">{{ convertTimestampToDate(track.time_add) }}</td>
+	<td  class="time">{{ convertSecondsToMinutes(track.duration) }}</td>
 	<td><input type="radio" name="radio"></td>
 </template>
 
 <style lang='scss'>
-	.title {
+	.ArtistName, .album, .title {
+		font-size: 14px;
+	}
+	
+	.add, .time {
+		font-size: 12px;
+		font-weight: 100;
+		color: #bebec7;
+	}
+
+	.title{
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.tileGauche {
 		display: flex;
 		align-items: center;
 		font-size: 14px;
 	}
 
-	td{
-		padding: 10px;
+	.tileDroite {
+		width: 150px;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		font-size: 14px;
+	}
+
+	.fa-heart {
+		color: #EF5466;
 	}
 
 	.title img {
