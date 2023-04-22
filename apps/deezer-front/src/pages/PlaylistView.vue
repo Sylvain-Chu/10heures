@@ -14,17 +14,7 @@
 		return `${hours > 0 ? hours + ' hrs ' : ''}${minutes} min`;
 	}
 
-	const musiqueRef = ref(null);
-
-	function handleMouseOver() {
-		console.log(musiqueRef.value)
-		musiqueRef.value.style.backgroundColor  = "red";
-	}
-
-	function handleMouseOut() {
-		console.log('degage');
-		musiqueRef.value.style.backgroundColor = "#121216;";
-	}
+	
 
 </script>
 
@@ -73,8 +63,8 @@
 					<th><i class="fas fa-clock"></i></th>
 					<th><input type="radio" name="radio"></th>
 				</tr>
-				<tr v-for='track in playlist.tracks.data' @mouseover="handleMouseOver" @mouseout="handleMouseOut"  class="trDatas" >
-					<Track :track='track' :playlistData='playlist' v-bind:ref="musiqueRef"/>
+				<tr v-for='track in playlist.tracks.data' class="trDatas" >
+					<Track :track='track' :playlistData='playlist'/>
 				</tr>
 			</table>
 		</div>
@@ -85,6 +75,9 @@
 
 	.trDatas {
 		background-color: #121216;
+	}
+	.trDatas:hover {
+		background-color: #191922;
 	}
 	.header-table > th {
 		font-size: 12px;
