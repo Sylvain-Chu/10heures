@@ -3,6 +3,8 @@
 
 	import Player from './components/Player.vue';
 	import SideMenu from './components/SideMenu.vue';
+	import Header from './components/Header.vue';
+
 
 	useQueryProvider();
 </script>
@@ -13,6 +15,7 @@
 			<SideMenu />
 		</aside>
 		<main>
+			<Header />
 			<RouterView />
 		</main>
 		<footer>

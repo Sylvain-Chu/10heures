@@ -33,19 +33,18 @@
 					</div>
 					<div class='buttons'>
 
-						<button class='btn btn-play'>Listen</button>
-						<button class='btn btn-edit'>
-							<!--							<svg viewBox='0 0 16 16' focusable='false' class='chakra-icon css-1yk3h4a e1k4it830'-->
-							<!--									 data-testid='PencilIcon' aria-hidden='true'>-->
-							<!--								<path-->
-							<!--									d='M11.427 6.031 9.969 4.573 2 12.543V14h1.458l7.969-7.969zM3.872 15H1v-2.872L12.128 1 15 3.872 3.872 15zm9.714-11.128-1.458-1.458-1.452 1.452 1.458 1.458 1.452-1.452z'></path>-->
-							<!--							</svg>-->
+						<button class='btn btn-play'>
+							<i class="fas fa-play triangle" ></i>
+							<h3>Écouter</h3>
 						</button>
-						<button class='btn btn-share'>
-							<!--							<svg viewBox="0 0 16 16" focusable="false" class="chakra-icon css-1yk3h4a e1k4it830" data-testid="ShareIcon" aria-hidden="true"><path d="M8 14.26v-4.195c-1.34.182-2.54.719-3.478 1.283-.576.347-1.038.694-1.354.953a8.783 8.783 0 0 0-.44.387l-.019.017-.002.002L.358 15.06l.662-3.259L2 12s.516-.518 1.404-1.123C4.478 10.145 6.096 9.284 8 9.057A8.051 8.051 0 0 1 9 9v3l2.553-2.32L14 7.5 9 3v2c-3.738.451-5.58 3.303-6.408 5.225C2.154 11.243 2 12 2 12l-.98-.199v-.004l.002-.007.005-.02a4.953 4.953 0 0 1 .073-.3 12.354 12.354 0 0 1 1.407-3.24C3.533 6.579 5.257 4.775 8 4.159V.755l7.499 6.748-3.277 2.92L8 14.26z"></path></svg>-->
+						<button class='background-hearth'>
+							<i class="fas fa-heart hearth" ></i>
 						</button>
-						<button class='btn btn-parameters'>
-							<!--							<svg viewBox="0 0 16 16" focusable="false" class="chakra-icon css-1yk3h4a e1k4it830" data-testid="EllipsisIcon" aria-hidden="true"><path d="M5 8.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm3.5 1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path></svg>-->
+						<button class='background-share'>
+							<i class="fas fa-share share"></i>
+						</button>
+						<button class='background-point'>
+							<i class="fas fa-ellipsis-h points"></i>
 						</button>
 					</div>
 				</div>
@@ -55,7 +54,7 @@
 
 			<table>
 				<tr class='header-table'>
-					<th>Track</th>
+					<th>Titre</th>
 					<th>Artist</th>
 					<th>Album</th>
 					<th>Added</th>
@@ -71,9 +70,34 @@
 </template>
 
 <style scoped>
+
+	.buttons {
+		display: flex;
+	}
+	.buttons > button:not(:first-child) {
+		border-radius: 50%;
+		background-color: #121216;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+	}
+	
+	button {
+		margin-left: 10px;
+	}
+	.buttons > button:not(:first-child) > i {
+		padding: 8px 5px 8px 5px;
+	}
+	.buttons .hearth {
+		color: #EF5466
+	}
+
+	.buttons .share, .buttons .points {
+		color: white;
+	}
+	
 	.playlist-view {
 		color: #fff;
 		padding: 24px;
+		margin-left: 85px;
 	}
 
 	p {
@@ -90,10 +114,12 @@
 	}
 
 	.btn-play {
-		display: inline-block;
-		padding: 0.625rem 1.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.625rem 2.5rem;
 		border-radius: 9999px;
-		background-color: hsl(357, 63%, 60%);
+		background-color: #EF5466;
 		color: #FFFFFF;
 		font-weight: bold;
 		font-size: 0.75rem;
@@ -103,13 +129,12 @@
 		transition: all 0.2s ease-in-out;
 	}
 
-	.btn-play:hover {
-		background-color: hsl(0, 56%, 53%);
+	.btn-play > i {
+		margin-right: 15px;
 	}
 
-
-	img {
-		max-width: 100%;
+	.btn-play:hover {
+		background-color: hsl(0, 56%, 53%);
 	}
 
 	h1 {
@@ -138,8 +163,8 @@
 	}
 
 	.header-playlist img {
-		width: 172px;
-		height: 172px;
+		width: 250px;
+		height: 250px;
 		border-radius: 5px;
 	}
 
