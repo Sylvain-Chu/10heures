@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+	import { ref } from 'vue';
+
 	const svgData = [
 		[
 			'music',
@@ -27,6 +29,12 @@
 		],
 	];
 
+	const liMusic = ref(null);
+	const liPodcasts = ref(null);
+	const liRadio = ref(null);
+	const liExplore = ref(null);
+	const liFavourites = ref(null);
+
 	function handleMouseOver(svg: string) {
 		const path = document.querySelector(`#` + `${svg} path`);
 		if (!path) return;
@@ -53,6 +61,38 @@
 	}
 
 	function handleMouseOut(svg: string) {
+		let element = null;
+		let l = null;
+
+		switch (svg) {
+			case 'svg-music':
+				element = liMusic.value;
+				l = element?.getAttribute('class');
+				break;
+			case 'svg-podcasts':
+				element = liPodcasts.value;
+				l = element?.getAttribute('class');
+				if (l?.includes('active')) return;
+				break;
+			case 'svg-radio':
+				element = liRadio.value;
+				l = element?.getAttribute('class');
+				if (l?.includes('active')) return;
+				break;
+			case 'svg-explore':
+				element = liExplore.value;
+				l = element?.getAttribute('class');
+				if (l?.includes('active')) return;
+				break;
+			case 'svg-favourites':
+				element = liFavourites.value;
+				l = element?.getAttribute('class');
+				if (l?.includes('active')) return;
+				break;
+		}
+
+		if (l?.includes('active')) return;
+
 		const path = document.querySelector(`#` + `${svg} path`);
 		if (!path) return;
 		let d = path.getAttribute('d');
@@ -96,6 +136,7 @@
 				:class="{ active: $route.path === '/' }"
 				@mouseover="handleMouseOver('svg-music')"
 				@mouseout="handleMouseOut('svg-music')"
+				ref="liMusic"
 			>
 				<RouterLink to="/" class="is-main">
 					<svg
@@ -111,7 +152,7 @@
 						<path
 							clip-rule="evenodd"
 							fill-rule="evenodd"
-							:d="$route.path === '/' ? svgData[0][1] : svgData[0][2]"
+							:d="$route.path === '/' ? svgData[0][2] : svgData[0][1]"
 						></path>
 					</svg>
 					<span class="sidebar-nav-label">Music</span>
@@ -123,6 +164,7 @@
 				:class="{ active: $route.path === '/podcasts' }"
 				@mouseover="handleMouseOver('svg-podcasts')"
 				@mouseout="handleMouseOut('svg-podcasts')"
+				ref="liPodcasts"
 			>
 				<RouterLink to="/podcasts" class="is-main">
 					<svg
@@ -135,7 +177,11 @@
 						viewBox="0 0 24 24"
 						aria-hidden="true"
 					>
-						<path clip-rule="evenodd" fill-rule="evenodd" :d="svgData[1][1]"></path>
+						<path
+							clip-rule="evenodd"
+							fill-rule="evenodd"
+							:d="$route.path === '/podcasts' ? svgData[1][2] : svgData[1][1]"
+						></path>
 					</svg>
 					<span class="sidebar-nav-label">Podcasts</span>
 				</RouterLink>
@@ -146,6 +192,7 @@
 				:class="{ active: $route.path === '/radio' }"
 				@mouseover="handleMouseOver('svg-radio')"
 				@mouseout="handleMouseOut('svg-radio')"
+				ref="liRadio"
 			>
 				<RouterLink to="/radio" class="is-main">
 					<svg
@@ -158,7 +205,11 @@
 						viewBox="0 0 24 24"
 						aria-hidden="true"
 					>
-						<path clip-rule="evenodd" fill-rule="evenodd" :d="svgData[2][1]"></path>
+						<path
+							clip-rule="evenodd"
+							fill-rule="evenodd"
+							:d="$route.path === '/radio' ? svgData[2][2] : svgData[2][1]"
+						></path>
 					</svg>
 					<span class="sidebar-nav-label">Radio</span>
 				</RouterLink>
@@ -168,6 +219,7 @@
 				:class="{ active: $route.path === '/explore' }"
 				@mouseover="handleMouseOver('svg-explore')"
 				@mouseout="handleMouseOut('svg-explore')"
+				ref="liExplore"
 			>
 				<RouterLink to="/explore" class="is-main">
 					<svg
@@ -180,7 +232,11 @@
 						viewBox="0 0 24 24"
 						aria-hidden="true"
 					>
-						<path clip-rule="evenodd" fill-rule="evenodd" :d="svgData[3][1]"></path>
+						<path
+							clip-rule="evenodd"
+							fill-rule="evenodd"
+							:d="$route.path === '/explore' ? svgData[3][2] : svgData[3][1]"
+						></path>
 					</svg>
 					<span class="sidebar-nav-label">Explore</span>
 				</RouterLink>
@@ -190,6 +246,7 @@
 				:class="{ active: $route.path === '/favourites' }"
 				@mouseover="handleMouseOver('svg-favourites')"
 				@mouseout="handleMouseOut('svg-favourites')"
+				ref="liFavourites"
 			>
 				<RouterLink to="/favourites" class="is-main">
 					<svg
@@ -205,7 +262,7 @@
 						<path
 							clip-rule="evenodd"
 							fill-rule="evenodd"
-							:d="$route.path === '/favourites' ? svgData[0][2] : svgData[0][1]"
+							:d="$route.path === '/favourites' ? svgData[4][2] : svgData[4][1]"
 						></path>
 					</svg>
 					<span class="sidebar-nav-label">Favourites</span>
