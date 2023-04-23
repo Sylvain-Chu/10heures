@@ -10,6 +10,8 @@ const router = createRouter({
 		{ path: '/playlist/:id', component: () => import('./pages/PlaylistView.vue') },
 		{ path: '/artist/:id', component: () => import('./pages/ArtistView.vue') },
 		{ path: '/channels/charts', component: () => import('./pages/ChartView.vue') },
+
+		{ path: '/podcasts', component: () => import('./pages/PodcastsListView.vue') },
 	],
 	history: createWebHistory(import.meta.env.BASE_URL),
 });
