@@ -41,7 +41,8 @@
 		max-height: 100vh;
 		display: flex;
 		flex-direction: column;
-		width: 80%;
+		width: calc(100vw - 245px);
+		overflow-x: hidden;
 	}
 
 	header {
@@ -54,11 +55,21 @@
 
 	aside {
 		border-right: 1px solid var(--light-grey);
-		width: 20%;
+		width: 245px;
 		background-color: hsl(240, 14%, 11%);
 	}
 
 	footer {
 		width: 100vw;
 	}
+
+	// @media screen and (min-width: 1800px) {
+	// 	main {
+	// 		width: 89vw;
+	// 	}
+
+	// 	aside {
+	// 		width: 11vw;
+	// 	}
+	// }
 </style>
