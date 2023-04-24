@@ -105,6 +105,7 @@
 
 
 	.headerContainer {
+		max-width: calc(var(--width-RouerView) - 7.5%); 
 		margin-left: auto;
 		margin-right: auto;   
 	}
@@ -128,9 +129,10 @@
 		display: flex;
 		overflow: hidden;
 		flex-wrap: nowrap;
-		width: 81vw; 
+		max-width: calc(var(--width-RouerView) - 7.5%); 
 		margin-left: auto;
 		margin-right: auto;
+		
 	}
 
 	section > div {
@@ -141,8 +143,6 @@
 
 
 	main section {
-		padding-left: 2rem;
-		padding-right: 2rem;
 		margin-top: 2rem;
 		min-width: 800px;
 		width: 100%;
@@ -182,11 +182,10 @@
 		font-size: 22px;
 	}
 
-	.section {
+	section {
 		display: flex;
 		flex-direction: column;
-		padding-inline: 8px;
-		height: 100%;
+		max-width: var(--width-RouerView);
 	}
 
 	.tumecasseslescouilles {

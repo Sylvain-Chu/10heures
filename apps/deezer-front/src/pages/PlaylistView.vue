@@ -51,7 +51,13 @@
 				</div>
 
 			</div>
-
+			<div class="search">
+				<div class="containerInput">
+					<i class="fa-solid fa-magnifying-glass"></i>
+					<input type="text" placeholder="Rechercher parmi les titres" id="">
+				</div>
+				
+			</div>
 
 			<table>
 				<tr class='header-table'>
@@ -60,7 +66,7 @@
 					<th>ALBUM</th>
 					<th>AJOUTÉ</th>
 					<th><i class="fas fa-clock"></i></th>
-					<th><input type="radio" name="radio"></th>
+					<th><div class="inputDiv"><input type="radio" name="radio"></div></th>
 				</tr>
 				<tr v-for='track in playlist.tracks.data' class="trDatas" >
 					<Track :track='track' :playlistData='playlist'/>
@@ -71,6 +77,40 @@
 </template>
 
 <style scoped>
+
+	.containerInput {
+		margin-top: 15px;
+		background-color: #32323D;
+		filter: brightness(0.7);
+		width: 40%;
+		padding: 4px 4px 4px 8px;
+		border-radius: 5px;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+	}
+
+	.containerInput:hover {
+		border: 1px solid rgba(228, 225, 225, 1);
+	}
+	.containerInput input {
+		background-color: #32323D;
+		outline: none;
+		border: none;
+		font-size: 14px;
+		color: white;
+		line-height: 1.15;
+		width: 90%;
+		
+		
+	}
+
+	.containerInput input::placeholder {
+		color: rgba(255, 255, 255, 0.8);
+		letter-spacing: 0.5px; /* Ajouter de l'espace ici */
+	}
+	.containerInput i  {
+		color: gray;
+		margin-right: 10px;
+	}
 
 	.trDatas {
 		background-color: #121216;
@@ -92,9 +132,6 @@
 		border: 1px solid rgba(255, 255, 255, 0.3);
 	}
 	
-	button {
-		margin-left: 10px;
-	}
 	.buttons > button:not(:first-child) > i {
 		padding: 8px 5px 8px 5px;
 	}
@@ -110,7 +147,23 @@
 		color: #fff;
 		padding: 24px;
 		margin-left: 85px;
-		margin-right: 80px;
+		padding-right: 125px;
+		max-height: calc(100vh - var(--height--header));
+		width: calc(var(--width-RouerView) - 85px);
+		overflow-y: auto;
+	}
+
+	.playlist-view::-webkit-scrollbar {
+		width: 0.4rem;
+	}
+
+	.playlist-view::-webkit-scrollbar-track {
+		background: hsl(240, 14%, 11%);
+	}
+
+	.playlist-view::-webkit-scrollbar-thumb {
+		background: hsl(240, 6%, 34%);
+		border-radius: 0.5rem;
 	}
 
 	p {
@@ -182,8 +235,29 @@
 	}
 
 	.playlist-data {
-		margin-left: 20px;
+		margin-left: 30px;
+		height: 250px;
 	}
+
+	.playlist-data h1 {
+		font-size: 32px;
+		margin: 0 0 10px 0;
+	}
+
+	.playlist-data p {
+		font-size: 14px;
+	}
+
+	.playlist-data .data p {
+		color: #A2A2AD;
+		margin-bottom: 4px;
+	}
+
+	.inputDiv {
+		display: flex;
+    	justify-content: center;
+	}
+
 
 	.user-playlist {
 		display: flex;

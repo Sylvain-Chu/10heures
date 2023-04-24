@@ -44,7 +44,7 @@
 	</td>
 	<td class="add">{{ convertTimestampToDate(track.time_add) }}</td>
 	<td  class="time">{{ convertSecondsToMinutes(track.duration) }}</td>
-	<td><input type="radio" name="radio"></td>
+	<td><div class="inputDiv"><input type="radio" name="radio"></div></td>
 </template>
 
 <style lang='scss'>
@@ -111,6 +111,11 @@
 		margin: 0;
 		font-size: 1rem;
 		font-weight: normal;
+	}
+
+	.inputDiv {
+		display: flex;
+    	justify-content: center;
 	}
 
 	input[type="radio"] {

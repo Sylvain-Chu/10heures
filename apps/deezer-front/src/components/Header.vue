@@ -57,6 +57,7 @@
 
 	input {
 		outline: none;
+		padding: 15px;
 	}
 
 	.HeaderLinkNotif {

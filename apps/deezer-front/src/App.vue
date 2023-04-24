@@ -9,8 +9,9 @@
 </script>
 
 <template>
-	<div class="container">
-		<aside>
+	<div>
+		<div class="container">
+			<aside>
 			<SideMenu />
 		</aside>
 		<main>
@@ -18,10 +19,12 @@
 				<Header />
 			</header>
 			<RouterView />
-			<footer>
-				<Player />
-			</footer>
 		</main>
+		</div>
+		
+		<footer>
+			<Player />
+		</footer>
 	</div>
 </template>
 
@@ -38,10 +41,10 @@
 
 	main {
 		background-color: hsl(240, 10%, 8%);
-		max-height: 100vh;
+		height: calc(100vh - var(--height--header));
 		display: flex;
 		flex-direction: column;
-		width: calc(100vw - 245px);
+		width: var(--width-RouerView);
 		overflow-x: hidden;
 	}
 
@@ -50,7 +53,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		height: 56px;
+		height: var(--height--header);
 	}
 
 	aside {
@@ -61,6 +64,10 @@
 
 	footer {
 		width: 100vw;
+		height: 80px;
+		background-color: #23232d;
+		position: fixed;
+		bottom: 0;
 	}
 
 	// @media screen and (min-width: 1800px) {
